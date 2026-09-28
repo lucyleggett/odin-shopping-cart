@@ -1,0 +1,11 @@
+.page.shop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  height: 200px;
+  object-fit: cover;
+}

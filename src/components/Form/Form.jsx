@@ -1,3 +1,5 @@
+import "./Form.css"
+
 export function Form({ handleSubmit, handleChange, loading, input }) {
   return (
     <form onSubmit={handleSubmit}>

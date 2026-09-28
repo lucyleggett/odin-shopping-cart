@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import "./index.css";
 import "./App.css";
 import mockData from "./data/example.json";
-import { Form } from "./components/Form/Form";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Page } from "./components/Page/Page";
+import miffyWalking from "./assets/miffy_walking.png";
 
 function App() {
   const [input, setInput] = useState("");
@@ -51,37 +54,18 @@ function App() {
   };
 
   return (
-    <div>
-      <Form
+    <div className="container">
+      <div className="header">
+        <img src={miffyWalking} alt="Miffy walking" />
+        <h1 className="volta">Miffy at the shop</h1>
+      </div>
+      <Navbar
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         loading={loading}
         input={input}
-      ></Form>
-
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-
-      {data?.response?.products?.map((product) => {
-        const image =
-          product.images?.find((img) => img.is_main_image) ??
-          product.images?.[0];
-
-        return (
-          <div key={product.id}>
-            {image && (
-              <img
-                src={image.cleaned_url ?? image.url}
-                alt={image.alt_text ?? product.title}
-                width={200}
-              />
-            )}
-            <h3>{product.title}</h3>
-            <p>{product.brands?.[0]?.name}</p>
-            <p>{product.offers?.[0]?.price?.price}</p>
-          </div>
-        );
-      })}
+      />
+      <Page customClass="shop" loading={loading} error={error} data={data} />
     </div>
   );
 }

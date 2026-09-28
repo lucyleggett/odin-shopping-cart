@@ -14,20 +14,21 @@
   --ff-heading: "Volta W01 Bold V1", "Rockwell", "Courier New", serif;
 
   --fs-body: 16px;
-  --fs-heading: 30px;
+  --fs-heading: clamp(30px, 6vw, 60px) ;
 
-  font-family: var(--sans);
+  font-family: var(--ff-sans);
   font-size: var(--fs-body);
-  color: var(--text);
-  background: var(--bg);
+  color: var(--clr-text);
+  background: var(--clr-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html, #root, body {
   margin: 0;
+  height: 100%;
 }
 
 *,
@@ -79,4 +80,8 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-heading);
 }
