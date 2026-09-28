@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import mockData from "./data/example.json";
 
 function App() {
   const [input, setInput] = useState("");
@@ -18,22 +19,27 @@ function App() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(API_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          query,
-          filters: {},
-          limit: 20,
-        })
+      let response;
+
+      if (import.meta.env.DEV) {
+        response = mockData;
+        setData(response);
+      } else {
+        response = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query,
+            filters: { brand_ids: ["YPRD"] },
+            limit: 20,
+          }),
+        });
+
+        if (!response.ok)
+          throw new Error(`HTTP error. Status: ${response.status}`);
+
+        setData(await response.json());
       }
-      );
-
-      if (!response.ok)
-        throw new Error(`HTTP error. Status: ${response.status}`);
-
-      setData(await response.json());
-      console.log(data);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -58,12 +64,26 @@ function App() {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
-      {data?.products?.map((product, i) => (
-        <div key={product.id ?? i}>
-          <h3>{product.title}</h3>
-          <p>{product.offers?.[0]?.price}</p>
-        </div>
-      ))}
+      {data?.response?.products?.map((product) => {
+        const image =
+          product.images?.find((img) => img.is_main_image) ??
+          product.images?.[0];
+
+        return (
+          <div key={product.id}>
+            {image && (
+              <img
+                src={image.cleaned_url ?? image.url}
+                alt={image.alt_text ?? product.title}
+                width={200}
+              />
+            )}
+            <h3>{product.title}</h3>
+            <p>{product.brands?.[0]?.name}</p>
+            <p>{product.offers?.[0]?.price?.price}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

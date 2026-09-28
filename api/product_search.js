@@ -1,4 +1,4 @@
-import { Channel3 } from "@channel3/sdk";
+import Channel3 from "@channel3/sdk";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -12,14 +12,18 @@ export default async function handler(req, res) {
       .json({ error: "Missing CHANNEL3_API_KEY on Vercel" });
   }
 
-  const { query, filters = {}, limit = 20 } = req.body ?? {};
+  const {
+    query,
+    filters = { brand_ids: ["YPRD"] },
+    limit = 20,
+  } = req.body ?? {};
   if (!query) {
-    return res.status(400).json({ error: "Missing ?q= search query" });
+    return res.status(400).json({ error: "Missing query" });
   }
 
   try {
     const client = new Channel3({ apiKey });
-    const results = await client.product.search({ query, filters, limit });
+    const results = await client.products.search({ query, filters, limit });
     return res.status(200).json(results);
   } catch (error) {
     return res.status(error.status || 500).json({ error: error.message });
