@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import mockData from "./data/example.json";
+import { Form } from "./components/Form/Form";
 
 function App() {
   const [input, setInput] = useState("");
@@ -9,6 +10,10 @@ function App() {
   const [error, setError] = useState(null);
 
   const API_ENDPOINT = "/api/product_search";
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,8 +35,6 @@ function App() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             query,
-            filters: { brand_ids: ["YPRD"] },
-            limit: 20,
           }),
         });
 
@@ -49,17 +52,12 @@ function App() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Search products..."
-        />
-        <button type="submit" disabled={loading}>
-          Search
-        </button>
-      </form>
+      <Form
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        loading={loading}
+        input={input}
+      ></Form>
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
