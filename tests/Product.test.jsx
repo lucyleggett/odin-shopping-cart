@@ -1,9 +1,6 @@
-import { vi, describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { createMemoryRouter, RouterProvider } from "react-router";
-import routes from "../src/routes";
-import { renderShop } from "./App.test";
+import { describe, it, expect } from "vitest";
+import { screen } from "@testing-library/react";
+import { renderShop } from "./_helpers";
 
 describe("Product component", async () => {
   it("provides the price in $XX.XX format", async () => {

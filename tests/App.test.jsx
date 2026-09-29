@@ -1,13 +1,12 @@
-import { vi, describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { vi, describe, it, expect, afterEach } from "vitest";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { createMemoryRouter, RouterProvider } from "react-router";
-import routes from "../src/routes";
+import { renderShop } from "./_helpers";
 
-export function renderShop() {
-  const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
-  return render(<RouterProvider router={router} />);
-}
+afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.unstubAllGlobals();
+});
 
 describe("App Form submission", () => {
   it("updates the input value as the user types in the search bar", async () => {
@@ -23,29 +22,45 @@ describe("App Form submission", () => {
   it("submits the form with the correct query payload", async () => {
     const user = userEvent.setup();
 
-    vi.stubEnv("DEV", "false");
-    import.meta.env.DEV = false;
+    vi.stubEnv("DEV", false);
 
     const mockFetch = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => [{ id: 1, title: "Cozy Slippers" }],
+      json: async () => ({
+        response: {
+          products: [
+            {
+              id: 1,
+              title: "Cozy Slippers",
+              offers: [{ price: { price: 12.5 } }],
+              images: [],
+            },
+            {
+              id: 2,
+              title: "Warm Socks",
+              offers: [{ price: { price: 5 } }],
+              images: [],
+            },
+          ],
+        },
+      }),
     });
     vi.stubGlobal("fetch", mockFetch);
 
     renderShop();
+    expect(await screen.findByText("Cozy Slippers")).toBeInTheDocument();
 
-    const searchInput = screen.getByTestId("search-input");
-    await user.type(searchInput, "Slippers");
+    await user.type(screen.getByTestId("search-input"), "Slippers");
+    await user.click(screen.getByRole("button", { name: /search/i }));
 
-    const submitBtn = screen.getByRole("button", { name: /search/i });
-    await user.click(submitBtn);
+    await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(2));
 
-    const firstCall = mockFetch.mock.calls[0];
-    expect(firstCall).toBeDefined();
+    const [firstUrl, firstOptions] = mockFetch.mock.calls[0];
+    expect(JSON.parse(firstOptions.body)).toEqual({ query: "Miffy" });
 
-    const [url, options] = firstCall;
+    const [url, options] = mockFetch.mock.lastCall;
     expect(url).toBe("/api/product_search");
     expect(options.method).toBe("POST");
-    expect(options.body).toContain("Slippers");
+    expect(JSON.parse(options.body)).toEqual({ query: "Slippers" });
   });
 });
