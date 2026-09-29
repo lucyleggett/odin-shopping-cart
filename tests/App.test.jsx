@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import routes from "../src/routes";
 
-function renderShop() {
+export function renderShop() {
   const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
   return render(<RouterProvider router={router} />);
 }

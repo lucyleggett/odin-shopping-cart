@@ -89,10 +89,12 @@ h1 {
   font-size: var(--fs-heading);
 }
 
-button {
+button, a {
+  color: inherit;
   background-color: transparent;
   border: none;
   text-transform: lowercase;
+  text-decoration: none;
   font-size: var(--fs-button);
   font-weight: 700;
   cursor: pointer;

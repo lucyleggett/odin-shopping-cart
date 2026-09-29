@@ -19,7 +19,10 @@ export function ShopPage() {
 
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        <div className={styles.productsContainer}>
+        <div
+          className={styles.productsContainer}
+          data-testid="products-container"
+        >
           {data?.response?.products?.map((product) => {
             const image =
               product.images?.find((img) => img.is_main_image) ??

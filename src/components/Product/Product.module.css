@@ -18,3 +18,17 @@
   margin: 0;
   border-radius: 20px;
 }
+
+.productInfo {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 0.25em;
+}
+
+.brand {
+  font-size: 14px; 
+}
+
+.price {
+  font-size: 18px;
+}

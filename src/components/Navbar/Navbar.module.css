@@ -27,18 +27,18 @@ button > img {
   transition: transform 0.3s ease;
 }
 
-.shopBtn > img {
+.shopBtn img {
   transform: rotateZ(45deg);
 }
 
-.homeBtn > img {
-  margin-right: 0.5em;
+.homeBtn span {
+  transform: translateX(5px);
 }
 
-.shopBtn > span {
+.shopBtn span {
   transform: translateX(-5px);
 }
 
-.cartBtn > span {
+.cartBtn span {
   transform: translateX(-10px);
 }

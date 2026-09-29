@@ -10,15 +10,15 @@ export function Navbar() {
       <div className={styles.buttonsContainer}>
         <NavLink to="/" className={styles.homeBtn}>
           <img src={house} alt="Miffy's house" />
-          Home
+          <span>Home</span>
         </NavLink>
         <NavLink to="/shop" className={styles.shopBtn}>
           <img src={dog} alt="Yellow duck" />
-          Shop
+          <span>Shop</span>
         </NavLink>
         <NavLink to="/cart" className={styles.cartBtn}>
           <img src={miffyGift} alt="Miffy holding a present" />
-          Cart
+          <span>Cart</span>
         </NavLink>
       </div>
     </nav>
