@@ -1,0 +1,46 @@
+nav {
+  display: flex;
+  padding: 1em;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 0.5em;
+}
+
+button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 110px;
+  padding: 0.2em;
+  background-color: transparent;
+  border: none;
+  text-transform: lowercase;
+  font-size: var(--fs-button);
+  font-weight: 700;
+}
+
+button > img {
+  border-radius: 0;
+}
+
+.shop-btn {
+    transform: translateX(8px);
+}
+
+.shop-btn > img {
+  transform: rotateZ(45deg);
+}
+
+.home-btn > img {
+  margin-right: 0.5em;
+}
+
+.shop-btn > span {
+  transform: translateX(-5px);
+}
+
+.cart-btn > span {
+  transform: translateX(-10px);
+}

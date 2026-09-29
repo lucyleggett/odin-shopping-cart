@@ -6,17 +6,19 @@
 
 .header {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: clamp(10px, 1vw, 30px);
   min-height: 30%;
   background-color: var(--clr-accent-yellow);
+  padding: 1em;
 }
 
-.volta {
-  font-family: var(--ff-heading);
+h1 {
+text-align: center;
 }
 
 img {
   margin: 1em;
+  height: 80%;
 }

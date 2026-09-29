@@ -1,4 +1,4 @@
-.product-container {
+.product-card {
   display: grid;
   grid-template-rows: 1fr auto;
   align-items: center;

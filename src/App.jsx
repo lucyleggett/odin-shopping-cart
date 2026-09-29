@@ -58,14 +58,17 @@ function App() {
       <div className="header">
         <img src={miffyWalking} alt="Miffy walking" />
         <h1 className="volta">Miffy at the shop</h1>
+        <Navbar />
       </div>
-      <Navbar
+      <Page
+        customClass="shop"
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         loading={loading}
         input={input}
+        error={error}
+        data={data}
       />
-      <Page customClass="shop" loading={loading} error={error} data={data} />
     </div>
   );
 }

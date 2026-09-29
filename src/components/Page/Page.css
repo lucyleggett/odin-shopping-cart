@@ -1,11 +1,13 @@
 .page {
-    padding: 1.5em;
+  display: flex;
+  flex-direction: column;
 }
 
-.page.shop {
+.products-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 1em;
+  padding: 1.5em;
 }

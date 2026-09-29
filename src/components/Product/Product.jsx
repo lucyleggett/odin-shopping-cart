@@ -2,7 +2,7 @@ import "./Product.css";
 
 export function Product({ imgSrc, imgAlt, title, brand, price }) {
   return (
-    <div className="product-container">
+    <div className="product-card">
       <img src={imgSrc} alt={imgAlt} />
       <div className="product-info">
         <h3 className="title">{title}</h3>
