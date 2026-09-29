@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import "./App.css";
+import styles from "./App.module.css";
 import mockData from "./data/example.json";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Page } from "./components/Page/Page";
@@ -54,9 +54,13 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <img src={miffyWalking} alt="Miffy walking" />
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <img
+          className={styles.heroImg}
+          src={miffyWalking}
+          alt="Miffy walking"
+        />
         <h1 className="volta">Miffy at the shop</h1>
         <Navbar />
       </div>

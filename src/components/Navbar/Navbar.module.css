@@ -1,46 +1,43 @@
 nav {
   display: flex;
-  padding: 1em;
+  margin: 1em;
 }
 
-.buttons-container {
+.buttonsContainer {
   display: flex;
   gap: 0.5em;
 }
 
-button {
+.shopBtn,
+.homeBtn,
+.cartBtn {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   width: 110px;
   padding: 0.2em;
-  background-color: transparent;
-  border: none;
-  text-transform: lowercase;
-  font-size: var(--fs-button);
-  font-weight: 700;
 }
 
 button > img {
   border-radius: 0;
 }
 
-.shop-btn {
+.shopBtn {
     transform: translateX(8px);
 }
 
-.shop-btn > img {
+.shopBtn > img {
   transform: rotateZ(45deg);
 }
 
-.home-btn > img {
+.homeBtn > img {
   margin-right: 0.5em;
 }
 
-.shop-btn > span {
+.shopBtn > span {
   transform: translateX(-5px);
 }
 
-.cart-btn > span {
+.cartBtn > span {
   transform: translateX(-10px);
 }

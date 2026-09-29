@@ -1,8 +1,8 @@
-import "./Product.css";
+import styles from "./Product.module.css";
 
 export function Product({ imgSrc, imgAlt, title, brand, price }) {
   return (
-    <div className="product-card">
+    <div className={styles.productCard}>
       <img src={imgSrc} alt={imgAlt} />
       <div className="product-info">
         <h3 className="title">{title}</h3>

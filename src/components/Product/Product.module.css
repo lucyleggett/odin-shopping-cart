@@ -1,4 +1,4 @@
-.product-card {
+.productCard {
   display: grid;
   grid-template-rows: 1fr auto;
   align-items: center;
@@ -11,8 +11,8 @@
   box-shadow: var(--box-shadow);
 }
 
-img {
-  max-width: 100%;
+.productCard img {
+  width: 100%;
   object-fit: cover;
   justify-self: center;
   margin: 0;

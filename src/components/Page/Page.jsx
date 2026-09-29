@@ -1,5 +1,5 @@
 import { Product } from "../Product/Product";
-import "./Page.css";
+import styles from "./Page.module.css";
 import { Form } from "../Form/Form";
 
 export function Page({
@@ -12,7 +12,7 @@ export function Page({
   data,
 }) {
   return (
-    <div className={`page ${customClass}`}>
+    <div className={`${styles.page} ${customClass}`}>
       {customClass === "shop" ? (
         <>
           <Form
@@ -24,7 +24,7 @@ export function Page({
 
           {loading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
-          <div className="products-container">
+          <div className={styles.productsContainer}>
             {data?.response?.products?.map((product) => {
               const image =
                 product.images?.find((img) => img.is_main_image) ??

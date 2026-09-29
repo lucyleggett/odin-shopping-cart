@@ -1,0 +1,25 @@
+.searchBar {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  padding: 3em;
+  background-color: var(--clr-accent-blue);
+}
+
+.searchBar input {
+  width: 300px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  padding: 0.5em 1em;
+}
+
+.searchBar input:active,
+.searchBar input:focus {
+  outline: none;
+  border: 2px solid var(--clr-accent-orange);
+}
+
+.searchBar button {
+  color: var(--clr-bg);
+}

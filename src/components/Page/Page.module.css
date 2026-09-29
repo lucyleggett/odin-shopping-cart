@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.products-container {
+.productsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: center;
