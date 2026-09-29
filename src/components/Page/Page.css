@@ -1,11 +1,11 @@
-.page.shop {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-items: center;
-  justify-content: center;
+.page {
+    padding: 1.5em;
 }
 
-img {
-  height: 200px;
-  object-fit: cover;
+.page.shop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }
