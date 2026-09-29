@@ -8,7 +8,7 @@ describe("App Form submission", () => {
     const user = userEvent.setup();
 
     render(<App />);
-    const searchInput = screen.getByPlaceholderText("Search products...");
+    const searchInput = screen.getByTestId("search-input");
     await user.type(searchInput, "Slippers");
 
     expect(searchInput).toHaveValue("Slippers");
@@ -28,7 +28,7 @@ describe("App Form submission", () => {
 
     render(<App />);
 
-    const searchInput = screen.getByPlaceholderText("Search products...");
+    const searchInput = screen.getByTestId("search-input");
     await user.type(searchInput, "Slippers");
 
     const submitBtn = screen.getByRole("button", { name: /search/i });

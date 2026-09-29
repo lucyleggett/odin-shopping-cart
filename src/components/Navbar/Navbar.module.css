@@ -23,7 +23,8 @@ button > img {
 }
 
 .shopBtn {
-    transform: translateX(8px);
+  transform: translateX(8px);
+  transition: transform 0.3s ease;
 }
 
 .shopBtn > img {

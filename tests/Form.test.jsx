@@ -17,7 +17,7 @@ describe("Search form", () => {
       />,
     );
 
-    const searchInput = screen.getByPlaceholderText("Search products...");
+    const searchInput = screen.getByTestId("search-input");
     await user.type(searchInput, "Slippers");
     expect(mockHandleChange).toHaveBeenCalled();
   });

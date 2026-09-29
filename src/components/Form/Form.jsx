@@ -7,7 +7,7 @@ export function Form({ handleSubmit, handleChange, loading, input }) {
         type="text"
         value={input}
         onChange={handleChange}
-        placeholder=""
+        data-testid="search-input"
       />
       <button type="submit" disabled={loading}>
         Search
