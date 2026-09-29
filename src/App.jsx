@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Outlet } from "react-router";
 import "./index.css";
 import styles from "./App.module.css";
 import mockData from "./data/example.json";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Page } from "./components/Page/Page";
+import { Navbar } from "./components/Navbar/Navbar.jsx";
 import miffyWalking from "./assets/miffy_walking.png";
 
 function App() {
@@ -64,14 +64,8 @@ function App() {
         <h1 className="volta">Miffy at the shop</h1>
         <Navbar />
       </div>
-      <Page
-        customClass="shop"
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        loading={loading}
-        input={input}
-        error={error}
-        data={data}
+      <Outlet
+        context={{ handleSubmit, handleChange, loading, input, error, data }}
       />
     </div>
   );

@@ -1,13 +1,19 @@
 import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "../src/App";
+import { createMemoryRouter, RouterProvider } from "react-router";
+import routes from "../src/routes";
+
+function renderShop() {
+  const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
+  return render(<RouterProvider router={router} />);
+}
 
 describe("App Form submission", () => {
   it("updates the input value as the user types in the search bar", async () => {
     const user = userEvent.setup();
 
-    render(<App />);
+    renderShop();
     const searchInput = screen.getByTestId("search-input");
     await user.type(searchInput, "Slippers");
 
@@ -26,7 +32,7 @@ describe("App Form submission", () => {
     });
     vi.stubGlobal("fetch", mockFetch);
 
-    render(<App />);
+    renderShop();
 
     const searchInput = screen.getByTestId("search-input");
     await user.type(searchInput, "Slippers");
@@ -43,4 +49,3 @@ describe("App Form submission", () => {
     expect(options.body).toContain("Slippers");
   });
 });
-
