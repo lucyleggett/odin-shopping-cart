@@ -1,12 +1,14 @@
-import { Product } from "../Product/Product";
+import { Product } from "./Product/Product";
 import styles from "./ShopPage.module.css";
-import { Form } from "../Form/Form";
+import { Form } from "./Form/Form";
 import { useState } from "react";
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../../hooks/useProducts";
+import { useCart } from "../../../hooks/useCart";
 
 export function ShopPage() {
   const [input, setInput] = useState("");
   const { data, loading, error, loadProducts } = useProducts();
+  const { cart, incrementItem, decrementItem } = useCart();
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -39,11 +41,15 @@ export function ShopPage() {
           return (
             <Product
               key={product.id}
+              id={product.id}
               imgSrc={image?.cleaned_url ?? image?.url}
               imgAlt={image?.alt_text ?? product.title}
               title={product.title}
               brand={product.brands?.[0]?.name}
               price={product.offers?.[0]?.price?.price}
+              cart={cart}
+              incrementItem={incrementItem}
+              decrementItem={decrementItem}
             ></Product>
           );
         })}

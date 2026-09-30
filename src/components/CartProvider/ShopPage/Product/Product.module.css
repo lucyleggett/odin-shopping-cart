@@ -1,6 +1,7 @@
 .productCard {
   display: grid;
   grid-template-rows: 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 0.5em;
   width: 100%;
@@ -12,6 +13,7 @@
 }
 
 .productCard img {
+  grid-area: 1 / 1 / 2 / 3;
   width: 100%;
   object-fit: cover;
   justify-self: center;
@@ -26,9 +28,20 @@
 }
 
 .brand {
-  font-size: 14px; 
+  font-size: 14px;
 }
 
 .price {
   font-size: 18px;
+}
+
+.quantity {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.quantity button {
+  font-weight: 500;
+  padding: 0 0.5em;
 }

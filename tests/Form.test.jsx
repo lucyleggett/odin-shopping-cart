@@ -1,7 +1,7 @@
 import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Form } from "../src/components/Form/Form";
+import { Form } from "../src/components/CartProvider/ShopPage/Form/Form";
 
 describe("Search form", () => {
   it("triggers handleChange when typing", async () => {

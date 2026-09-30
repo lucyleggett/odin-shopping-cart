@@ -1,7 +1,7 @@
 import App from "./App.jsx";
-import { ShopPage } from "./components/ShopPage/ShopPage.jsx";
+import { ShopPage } from "./components/CartProvider/ShopPage/ShopPage.jsx";
 import { HomePage } from "./components/HomePage/HomePage.jsx";
-import { CartPage } from "./components/CartPage/CartPage.jsx";
+import { CartPage } from "./components/CartProvider/CartPage/CartPage.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const routes = [
