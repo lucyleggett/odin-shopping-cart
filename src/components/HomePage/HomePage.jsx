@@ -6,6 +6,24 @@ import { Spotlight } from "./Spotlight/Spotlight";
 import bagguImg from "../../assets/product-images/baggu-collab.webp.jpeg";
 import cookwareImg from "../../assets/product-images/cookware.jpg";
 import starbucksImg from "../../assets/product-images/starbucks-collab.jpg";
+import blueFlower from "../../assets/blue-flower.png";
+import redFlower from "../../assets/red-flower.png";
+import yellowFlower from "../../assets/yellow-flower.png";
+
+const flowers = [
+  {
+    flower: blueFlower,
+    alt: "Blue flower",
+  },
+  {
+    flower: redFlower,
+    alt: "Red flower",
+  },
+  {
+    flower: yellowFlower,
+    alt: "Yellow flower",
+  },
+];
 
 export function HomePage() {
   const { data, loading, error } = useProducts();
@@ -34,8 +52,8 @@ export function HomePage() {
 
       <div className={styles.spotlightContainer}>
         <h2>miffy's favourites</h2>
-        {spotlightIndices.map((index) => {
-          const product = products?.[index];
+        {spotlightIndices.map((i, index) => {
+          const product = products?.[i];
           if (!product) return null;
 
           const image =
@@ -49,6 +67,8 @@ export function HomePage() {
               imgAlt={image?.alt_text ?? product.title}
               title={product.title}
               brand={product.brands?.[0]?.name}
+              flowerSrc={flowers[index].flower}
+              flowerAlt={flowers[index].alt}
               price={product.offers?.[0]?.price?.price}
             ></Spotlight>
           );

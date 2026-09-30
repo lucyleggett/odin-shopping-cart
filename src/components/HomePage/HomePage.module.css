@@ -1,14 +1,16 @@
 .page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 500px auto;
 }
 
 .imgHeader {
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -30,4 +32,20 @@
 .imgHeader img:nth-child(3) {
   grid-area: 2 / 2 / 3 / 3;
   object-position: 50% 75%;
+}
+
+.spotlightContainer {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  width: clamp(360px, 100%, 1000px);
+  padding: 2em;
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+  padding: 0.5em;
 }
