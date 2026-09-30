@@ -13,7 +13,7 @@ function App() {
           src={miffyWalking}
           alt="Miffy walking"
         />
-        <h1 className="volta">Miffy at the shop</h1>
+        <h1 className="volta">miffy at the shop</h1>
         <Navbar />
       </div>
       <Outlet />

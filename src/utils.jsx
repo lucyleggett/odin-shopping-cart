@@ -5,3 +5,17 @@ export function standardisePrice(price) {
 
   return numericPrice.toFixed(2);
 }
+
+export function getRandomIndices(array, num) {
+  if (num > array.length) {
+    throw new Error("Requested more indices than available in the array.");
+  }
+
+  let indices = [];
+  while (indices.length < num) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    if (indices.includes(randomIndex)) continue;
+    indices.push(randomIndex);
+  }
+  return indices;
+}
