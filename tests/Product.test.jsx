@@ -70,4 +70,17 @@ describe("Product component", () => {
     await user.click(card.getByRole("button", { name: "+" }));
     expect(card.getByText("3")).toBeInTheDocument();
   });
+
+  it("decrements quantity in cart when user clicks decrement button", async () => {
+    const user = userEvent.setup();
+    renderShop({ initialCart: testCart });
+
+    const cards = await screen.findAllByTestId("product-card");
+    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
+    const card = within(bagCard);
+
+    expect(card.getByText("1")).toBeInTheDocument();
+    await user.click(card.getByRole("button", { name: "-" }));
+    expect(card.getByText("0")).toBeInTheDocument();
+  });
 });
