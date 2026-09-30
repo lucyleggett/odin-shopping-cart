@@ -1,29 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { createRoutesStub, Outlet } from "react-router";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Navbar } from "../src/components/Navbar/Navbar";
-
-function renderNavbar(initialPath) {
-  const RouterStub = createRoutesStub([
-    {
-      path: "/",
-      Component: () => (
-        <>
-          <Navbar />
-          <Outlet />
-        </>
-      ),
-      children: [
-        { index: true, Component: () => <h1>Welcome to the Homepage</h1> },
-        { path: "shop", Component: () => <h1>Welcome to the Shop</h1> },
-        { path: "cart", Component: () => <h1>Welcome to the Cart</h1> },
-      ],
-    },
-  ]);
-
-  return render(<RouterStub initialEntries={[initialPath]} />);
-}
+import { renderNavbar } from "./_helpers";
 
 describe("Navbar component", () => {
   it("navigates to homepage when user clicks home button", async () => {
@@ -48,7 +26,7 @@ describe("Navbar component", () => {
 
   it("navigates to cart when user clicks cart button", async () => {
     const user = userEvent.setup();
-    renderNavbar("/shop");
+    renderNavbar("/");
 
     const cartBtn = screen.getByRole("link", { name: /cart/i });
     await user.click(cartBtn);

@@ -1,22 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { screen, within } from "@testing-library/react";
-import { renderShop } from "./_helpers";
+import { renderShop, testCart } from "./_helpers";
 import userEvent from "@testing-library/user-event";
-
-const testCart = [
-  {
-    id: 236363,
-    quantity: 2,
-  },
-  {
-    id: 729465,
-    quantity: 1,
-  },
-  {
-    id: 993294,
-    quantity: 6,
-  },
-];
 
 const products = [
   {
@@ -82,5 +67,44 @@ describe("Product component", () => {
     expect(card.getByText("1")).toBeInTheDocument();
     await user.click(card.getByRole("button", { name: "-" }));
     expect(card.getByText("0")).toBeInTheDocument();
+  });
+});
+
+describe("Cart counter", () => {
+  it("renders cart counter correctly", async () => {
+    renderShop({ initialCart: testCart });
+
+    const cartCounter = screen.getByTestId("cart-counter");
+    expect(cartCounter).toHaveTextContent("9");
+  });
+
+  it("cart counter decrements when product is decremented", async () => {
+    const user = userEvent.setup();
+    renderShop({ initialCart: testCart });
+
+    const cartCounter = screen.getByTestId("cart-counter");
+    expect(cartCounter).toHaveTextContent("9");
+
+    const cards = await screen.findAllByTestId("product-card");
+    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
+    const card = within(bagCard);
+    await user.click(card.getByRole("button", { name: "-" }));
+
+    expect(cartCounter).toHaveTextContent("8");
+  });
+
+  it("cart counter increments when product is incremented", async () => {
+    const user = userEvent.setup();
+    renderShop({ initialCart: testCart });
+
+    const cartCounter = screen.getByTestId("cart-counter");
+    expect(cartCounter).toHaveTextContent("9");
+
+    const cards = await screen.findAllByTestId("product-card");
+    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
+    const card = within(bagCard);
+    await user.click(card.getByRole("button", { name: "+" }));
+
+    expect(cartCounter).toHaveTextContent("10");
   });
 });
