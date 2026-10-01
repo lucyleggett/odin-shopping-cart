@@ -30,11 +30,18 @@ div.total {
   justify-content: space-between;
 }
 
+div.total {
+  border-top: solid 2px var(--clr-bg);
+  padding-top: 0.75em;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 div.buttons {
   gap: 1em;
 }
 
-.buttons > button {
+.buttons > * {
   display: flex;
   align-items: center;
   justify-content: center;
