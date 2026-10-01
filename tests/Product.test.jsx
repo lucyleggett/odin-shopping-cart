@@ -1,17 +1,18 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { screen, within } from "@testing-library/react";
-import { renderShop, testCart } from "./_helpers";
+import { renderShop } from "./_helpers";
+import { testCart } from "./_helper-data";
 import userEvent from "@testing-library/user-event";
 
 const products = [
   {
-    id: 236363,
+    id: "236363",
     title: "Miffy Cup",
     offers: [{ price: { price: 20 } }],
     images: [],
   },
   {
-    id: 729465,
+    id: "729465",
     title: "Miffy Bag",
     offers: [{ price: { price: 12 } }],
     images: [],

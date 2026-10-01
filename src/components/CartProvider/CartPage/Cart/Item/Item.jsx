@@ -7,7 +7,7 @@ export function Item({ id, brand, title, quantity, price }) {
   const totalPrice = quantity * price;
 
   return (
-    <div className={styles.cartItem}>
+    <div className={styles.cartItem} data-testid="cart-item">
       <h4>{title}</h4>
       <p className={styles.brand}>{brand}</p>
       <p className={styles.price}>{totalPrice}</p>
@@ -16,7 +16,9 @@ export function Item({ id, brand, title, quantity, price }) {
         <p>{quantity}</p>
         <button onClick={() => incrementItem(id)}>+</button>
       </div>
-      <button onClick={() => removeItem(id)}>x</button>
+      <button data-testid="remove-btn" onClick={() => removeItem(id)}>
+        x
+      </button>
     </div>
   );
 }

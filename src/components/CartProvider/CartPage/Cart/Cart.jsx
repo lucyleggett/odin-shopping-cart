@@ -14,8 +14,6 @@ export function Cart() {
           (product) => product.id === item.id,
         );
         if (!productData) return null;
-        console.log(productData)
-        const cartItem = (cart.find((item) => item.id === productData.id));
 
         return (
           <Item
@@ -24,7 +22,7 @@ export function Cart() {
             id={item.id}
             title={productData.title}
             brand={productData.brands?.[0]?.name}
-            quantity={cartItem.quantity}
+            quantity={item.quantity}
             price={productData.offers?.[0]?.price?.price}
           ></Item>
         );

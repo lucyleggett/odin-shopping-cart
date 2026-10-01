@@ -29,7 +29,9 @@ export function CartProvider({ children, initialCart = [] }) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, incrementItem, decrementItem, removeItem }}>
+    <CartContext.Provider
+      value={{ cart, incrementItem, decrementItem, removeItem }}
+    >
       {children}
     </CartContext.Provider>
   );

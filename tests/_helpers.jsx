@@ -17,6 +17,7 @@ export function renderShop({ initialCart = [], route = "/shop" } = {}) {
     </CartProvider>,
   );
 }
+
 export function renderNavbar(initialPath, { initialCart = [] } = {}) {
   const RouterStub = createRoutesStub([
     {
@@ -41,18 +42,3 @@ export function renderNavbar(initialPath, { initialCart = [] } = {}) {
     </CartProvider>,
   );
 }
-
-export const testCart = [
-  {
-    id: 236363,
-    quantity: 2,
-  },
-  {
-    id: 729465,
-    quantity: 1,
-  },
-  {
-    id: 993294,
-    quantity: 6,
-  },
-];

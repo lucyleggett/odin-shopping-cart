@@ -3,9 +3,8 @@ import { Cart } from "./Cart/Cart";
 import { Summary } from "./Cart/Summary/Summary";
 
 export function CartPage() {
-
   return (
-    <div className="cart-container">
+    <div className="cart-container" data-testid="cart-container">
       <Cart></Cart>
       <Summary></Summary>
     </div>
