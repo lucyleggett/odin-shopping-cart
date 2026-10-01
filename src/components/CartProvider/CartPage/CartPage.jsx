@@ -1,12 +1,11 @@
 import styles from "./CartPage.module.css";
 import { Cart } from "./Cart/Cart";
-import { Summary } from "./Cart/Summary/Summary";
 
 export function CartPage() {
   return (
-    <div className="cart-container" data-testid="cart-container">
+    <div className={styles.page}>
+        <h2>Your cart</h2>
       <Cart></Cart>
-      <Summary></Summary>
     </div>
   );
 }

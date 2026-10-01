@@ -1,0 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(360px, 100%, 1000px);
+  padding: 2em;
+}

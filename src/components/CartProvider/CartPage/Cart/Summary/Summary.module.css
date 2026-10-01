@@ -1,0 +1,55 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  min-width: 310px;
+  gap: 1em;
+}
+
+.summary,
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.summaryInfo {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  gap: 0.5em;
+}
+
+div.subtotal,
+div.postage,
+div.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.buttons {
+  gap: 1em;
+}
+
+.buttons > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 10px;
+  height: 2.5em;
+  width: 100%;
+}
+
+.checkoutBtn {
+  color: var(--clr-bg);
+  background-color: var(--clr-accent-green);
+}
+
+.continueBtn {
+  color: var(--clr-accent-green);
+  border: 2px solid var(--clr-accent-green);
+}

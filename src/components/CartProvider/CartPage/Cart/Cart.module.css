@@ -1,0 +1,18 @@
+.cartContainer {
+  display: flex;
+  gap: 1em;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-height: fit-content;
+  background-color: white;
+  padding: 1em;
+  gap: 1em;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}

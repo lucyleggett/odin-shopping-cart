@@ -41,9 +41,14 @@ describe("Cart item", () => {
 
     const cartItem = await screen.findByTestId("cart-item");
 
+    expect(
+      within(cartItem).getByAltText(
+        "Miffy measuring cup box packaging with Miffy character illustration.",
+      ),
+    ).toBeInTheDocument();
     expect(within(cartItem).getByText("Measuring Cup")).toBeInTheDocument();
     expect(within(cartItem).getByText("EJIRY")).toBeInTheDocument();
-    expect(within(cartItem).getByText("158")).toBeInTheDocument();
+    expect(within(cartItem).getByText("$158.00")).toBeInTheDocument();
     expect(within(cartItem).getByText("2")).toBeInTheDocument();
   });
 
