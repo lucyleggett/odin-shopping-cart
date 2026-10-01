@@ -24,8 +24,12 @@ export function CartProvider({ children, initialCart = [] }) {
     );
   };
 
+  const removeItem = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ cart, incrementItem, decrementItem }}>
+    <CartContext.Provider value={{ cart, incrementItem, decrementItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );

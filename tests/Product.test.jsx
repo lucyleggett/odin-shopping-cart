@@ -71,14 +71,14 @@ describe("Product component", () => {
 });
 
 describe("Cart counter", () => {
-  it("renders cart counter correctly", async () => {
+  it("renders correctly", async () => {
     renderShop({ initialCart: testCart });
 
     const cartCounter = screen.getByTestId("cart-counter");
     expect(cartCounter).toHaveTextContent("9");
   });
 
-  it("cart counter decrements when product is decremented", async () => {
+  it("decrements when product is decremented", async () => {
     const user = userEvent.setup();
     renderShop({ initialCart: testCart });
 
@@ -93,7 +93,7 @@ describe("Cart counter", () => {
     expect(cartCounter).toHaveTextContent("8");
   });
 
-  it("cart counter increments when product is incremented", async () => {
+  it("increments when product is incremented", async () => {
     const user = userEvent.setup();
     renderShop({ initialCart: testCart });
 

@@ -67,6 +67,7 @@ export function HomePage() {
               imgAlt={image?.alt_text ?? product.title}
               title={product.title}
               brand={product.brands?.[0]?.name}
+              description={product.description}
               flowerSrc={flowers[index].flower}
               flowerAlt={flowers[index].alt}
               price={product.offers?.[0]?.price?.price}
