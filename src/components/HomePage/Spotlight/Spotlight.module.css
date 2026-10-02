@@ -16,6 +16,7 @@
 
 .productSpotlight:nth-of-type(even) {
   flex-direction: row-reverse;
+  margin-right: 1em;
 }
 
 .productInfo {

@@ -3,31 +3,16 @@ import { screen, within } from "@testing-library/react";
 import { renderShop } from "./_helpers";
 import { testCart } from "./_helper-data";
 import userEvent from "@testing-library/user-event";
+import { testProductData } from "./_helper-data";
 
-const products = [
-  {
-    id: "236363",
-    title: "Miffy Cup",
-    offers: [{ price: { price: 20 } }],
-    images: [],
-  },
-  {
-    id: "729465",
-    title: "Miffy Bag",
-    offers: [{ price: { price: 12 } }],
-    images: [],
-  },
-];
-
-beforeEach(() => {
-  vi.stubEnv("DEV", false);
-  vi.stubGlobal(
-    "fetch",
-    vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ response: { products } }),
-    }),
-  );
+vi.mock("../src/hooks/useProducts", async () => {
+  const { testProductData } = await import("./_helper-data");
+  const value = {
+    data: { response: { products: testProductData } },
+    loading: false,
+    error: null,
+  };
+  return { useProducts: () => value };
 });
 
 afterEach(() => {
@@ -39,17 +24,17 @@ describe("Product component", () => {
   it("provides the price in $XX.XX format", async () => {
     renderShop();
     const cards = await screen.findAllByTestId("product-card");
-    const cupCard = cards.find((c) => within(c).queryByText("Miffy Cup"));
+    const cupCard = cards.find((c) => within(c).queryByText("Measuring Cup"));
 
-    expect(within(cupCard).getByText("$20.00")).toBeInTheDocument();
+    expect(within(cupCard).getByText("$79.00")).toBeInTheDocument();
   });
 
-  it("increments quantity in cart when user clicks increment button", async () => {
+  it("increments quantity on card when user clicks increment button", async () => {
     const user = userEvent.setup();
     renderShop({ initialCart: testCart });
 
     const cards = await screen.findAllByTestId("product-card");
-    const cupCard = cards.find((c) => within(c).queryByText("Miffy Cup"));
+    const cupCard = cards.find((c) => within(c).queryByText("Measuring Cup"));
     const card = within(cupCard);
 
     expect(card.getByText("2")).toBeInTheDocument();
@@ -57,17 +42,23 @@ describe("Product component", () => {
     expect(card.getByText("3")).toBeInTheDocument();
   });
 
-  it("decrements quantity in cart when user clicks decrement button", async () => {
+  it("decrements quantity on card when user clicks decrement button", async () => {
     const user = userEvent.setup();
-    renderShop({ initialCart: testCart });
+    renderShop({
+      initialCart: [
+        {
+          id: "236363",
+          quantity: 2,
+        },
+      ],
+    });
 
     const cards = await screen.findAllByTestId("product-card");
-    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
-    const card = within(bagCard);
+    const card = within(cards.find((c) => within(c).queryByText("Measuring Cup")));
 
-    expect(card.getByText("1")).toBeInTheDocument();
+    expect(card.getByText("2")).toBeInTheDocument();
     await user.click(card.getByRole("button", { name: "-" }));
-    expect(card.getByText("0")).toBeInTheDocument();
+    expect(card.getByText("1")).toBeInTheDocument();
   });
 });
 
@@ -87,7 +78,7 @@ describe("Cart counter", () => {
     expect(cartCounter).toHaveTextContent("9");
 
     const cards = await screen.findAllByTestId("product-card");
-    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
+    const bagCard = cards.find((c) => within(c).queryByText("Measuring Cup"));
     const card = within(bagCard);
     await user.click(card.getByRole("button", { name: "-" }));
 
@@ -102,7 +93,7 @@ describe("Cart counter", () => {
     expect(cartCounter).toHaveTextContent("9");
 
     const cards = await screen.findAllByTestId("product-card");
-    const bagCard = cards.find((c) => within(c).queryByText("Miffy Bag"));
+    const bagCard = cards.find((c) => within(c).queryByText("Measuring Cup"));
     const card = within(bagCard);
     await user.click(card.getByRole("button", { name: "+" }));
 

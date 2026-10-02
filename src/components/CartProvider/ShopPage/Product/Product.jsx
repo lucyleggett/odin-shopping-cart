@@ -34,6 +34,7 @@ export function Product({
             aria-label="Add to cart"
           >
             <FontAwesomeIcon icon={faBasketShopping} />
+            <span className={styles.plusIcon}>+</span>
           </button>
         ) : (
           <div className={styles.quantity}>
