@@ -1,8 +1,15 @@
+.carouselContainer {
+  position: relative;
+  height: fit-content;
+  max-width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .carouselTrack {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carouselTrack img {
@@ -10,4 +17,57 @@
   width: 100%;
   object-fit: contain;
   scroll-snap-align: center;
+  border-radius: 10px;
+}
+
+.carouselBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  width: 40px;
+  color: var(--clr-text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.carouselBtn:hover {
+  background-color: var(--clr-hover);
+}
+
+.carouselBtn:nth-of-type(1) {
+  left: 5px;
+}
+.carouselBtn:nth-of-type(2) {
+  right: 5px;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--clr-hover);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dot.active {
+  background-color: var(--clr-text);
 }

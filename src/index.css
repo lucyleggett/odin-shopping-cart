@@ -1,6 +1,7 @@
 :root {
   --clr-text: rgb(32, 34, 33);
   --clr-bg: rgb(247, 247, 247);
+  --clr-hover: rgba(203, 201, 201, 0.4);
   --clr-border: rgb(32, 34, 33);
   --clr-accent-orange: rgb(242, 101, 34);
   --clr-accent-yellow: rgb(255, 200, 11);
