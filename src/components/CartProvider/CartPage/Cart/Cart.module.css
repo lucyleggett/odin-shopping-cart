@@ -1,6 +1,7 @@
 .cartContainer {
   display: flex;
   gap: 1em;
+  width: 100%;
 }
 
 .itemsContainer {
@@ -9,10 +10,15 @@
   align-items: center;
   justify-content: center;
   width: 60%;
+  min-height: 200px;
   max-height: fit-content;
   background-color: white;
   padding: 1em;
   gap: 1em;
   border-radius: 20px;
   box-shadow: var(--box-shadow);
+}
+
+.empty {
+    font-weight: 500;
 }

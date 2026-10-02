@@ -6,7 +6,7 @@ export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const leadId = extractImgId(leadImgSrc);
 
-  const nextSlide = (e) => {
+  const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
@@ -25,24 +25,18 @@ export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
   return (
     <div className={styles.carouselContainer}>
       <div className={styles.carouselTrack}>
-        <img src={leadImgSrc} alt={leadImgAlt} />
-        {images
-          ?.filter((image) => extractImgId(image.url) !== leadId)
-          .map((image) => (
-            <img
-              key={extractImgId(image.url) ?? index}
-              src={image.cleaned_url || image.url}
-              alt={image.alt_text || productName || "Product image"}
-            ></img>
-          ))}
+        <img
+          src={images[currentIndex].cleaned_url || images[currentIndex].url}
+          alt={images[currentIndex].alt_text}
+        />
       </div>
-      <button class={styles.carouselBtn} id="prevBtn" onClick={prevSlide}>
+      <button className={styles.carouselBtn} id="prevBtn" onClick={prevSlide}>
         &#10094;
       </button>
-      <button class={styles.carouselBtn} id="nextBtn" onClick={nextSlide}>
+      <button className={styles.carouselBtn} id="nextBtn" onClick={nextSlide}>
         &#10095;
       </button>
-      
+
       <div className={styles.dotsContainer}>
         {images.map((img, index) => (
           <span

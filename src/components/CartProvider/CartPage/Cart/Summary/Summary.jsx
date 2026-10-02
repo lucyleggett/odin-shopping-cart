@@ -2,7 +2,7 @@ import styles from "../Summary/Summary.module.css";
 import { Link } from "react-router";
 import { standardisePrice } from "../../../../../utils";
 
-export function Summary({ total }) {
+export function Summary({ total, cartIsEmpty }) {
   return (
     <div className={styles.panel}>
       <div className={styles.summary}>
@@ -23,7 +23,9 @@ export function Summary({ total }) {
         </div>
       </div>
       <div className={styles.buttons}>
-        <button className={styles.checkoutBtn}>Proceed to checkout</button>
+        {!cartIsEmpty && (
+          <button className={styles.checkoutBtn}>Proceed to checkout</button>
+        )}
         <Link to="/shop" className={styles.continueBtn}>
           Continue shopping
         </Link>

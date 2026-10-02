@@ -20,11 +20,6 @@ export function Product({
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const quantity = cart?.find((item) => item.id === id)?.quantity ?? 0;
 
-  const stop = (fn) => (e) => {
-    e.stopPropagation();
-    fn(id);
-  };
-
   return (
     <>
       <div className={styles.productCard} data-testid="product-card">
@@ -44,7 +39,7 @@ export function Product({
           {quantity === 0 ? (
             <button
               className={styles.basketBtn}
-              onClick={stop(incrementItem)}
+              onClick={() => incrementItem(id)}
               aria-label="Add to cart"
             >
               <FontAwesomeIcon icon={faBasketShopping} />
@@ -52,9 +47,9 @@ export function Product({
             </button>
           ) : (
             <div className={styles.quantity}>
-              <button onClick={stop(decrementItem)}>-</button>
+              <button onClick={() => decrementItem(id)}>-</button>
               <p>{quantity}</p>
-              <button onClick={stop(incrementItem)}>+</button>
+              <button onClick={() => incrementItem(id)}>+</button>
             </div>
           )}
         </div>

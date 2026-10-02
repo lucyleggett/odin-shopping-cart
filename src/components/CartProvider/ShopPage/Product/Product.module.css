@@ -53,6 +53,7 @@
   grid-template-columns: 1fr;
   justify-self: end;
   align-self: self-end;
+  height: 62px;
   width: 76px;
 }
 

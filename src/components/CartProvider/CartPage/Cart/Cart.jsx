@@ -16,34 +16,40 @@ export function Cart() {
     return sum + price * item.quantity;
   }, 0);
 
+  const cartIsEmpty = cart.length < 1;
+
   return (
     <div className={styles.cartContainer}>
       <div className={styles.itemsContainer}>
-        {cart.map((item) => {
-          const productData = products.find((p) => p.id === item.id);
+        {cartIsEmpty ? (
+          <p className={styles.empty}>Your cart is empty.</p>
+        ) : (
+          cart.map((item) => {
+            const productData = products.find((p) => p.id === item.id);
 
-          if (!productData) return null;
+            if (!productData) return null;
 
-          const image =
-            productData.images?.find((img) => img.is_main_image) ??
-            productData.images?.[0];
+            const image =
+              productData.images?.find((img) => img.is_main_image) ??
+              productData.images?.[0];
 
-          return (
-            <Item
-              className={styles.cartItem}
-              key={item.id}
-              id={item.id}
-              imgSrc={image?.cleaned_url ?? image?.url}
-              imgAlt={image?.alt_text ?? productData.title}
-              title={productData.title}
-              brand={productData.brands?.[0]?.name}
-              quantity={item.quantity}
-              price={productData.offers?.[0]?.price?.price}
-            ></Item>
-          );
-        })}
+            return (
+              <Item
+                className={styles.cartItem}
+                key={item.id}
+                id={item.id}
+                imgSrc={image?.cleaned_url ?? image?.url}
+                imgAlt={image?.alt_text ?? productData.title}
+                title={productData.title}
+                brand={productData.brands?.[0]?.name}
+                quantity={item.quantity}
+                price={productData.offers?.[0]?.price?.price}
+              />
+            );
+          })
+        )}
       </div>
-      <Summary total={total}></Summary>
+      <Summary total={total} cartIsEmpty={cartIsEmpty} />
     </div>
   );
 }

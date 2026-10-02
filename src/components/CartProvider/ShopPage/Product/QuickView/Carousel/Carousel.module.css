@@ -1,23 +1,23 @@
 .carouselContainer {
   position: relative;
-  height: fit-content;
-  max-width: 50%;
-  margin: 0 auto;
   overflow: hidden;
+  aspect-ratio: 2 / 3;
+  width: 100%;
 }
 
 .carouselTrack {
   display: flex;
   width: 100%;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .carouselTrack img {
   flex: 0 0 100%;
   width: 100%;
+  height: 90%;
   object-fit: contain;
   scroll-snap-align: center;
-  border-radius: 10px;
 }
 
 .carouselBtn {
@@ -51,7 +51,7 @@
 
 .dotsContainer {
   position: absolute;
-  bottom: 16px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -69,5 +69,5 @@
 }
 
 .dot.active {
-  background-color: var(--clr-text);
+  background-color: color-mix(in srgb, var(--clr-text), transparent 30%);
 }

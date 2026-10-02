@@ -9,7 +9,9 @@
 
 .quickView {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 1em;
   background-color: var(--clr-bg);
   border-radius: 20px;
   max-width: min(800px, 90vw);
@@ -19,9 +21,9 @@
 }
 
 .closeBtn {
-  position: fixed;
-  top: 170px;
-  right: 250px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,8 +37,32 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
   padding: 1em;
+}
+
+.addItem {
+  align-self: flex-start;
+  align-items: center;
+  height: fit-content;
+  min-height: 62px;
+  width: fit-content;
+
+}
+
+.quantity {
+  align-self: flex-start;
+}
+
+.basketBtn {
+  height: fit-content;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--clr-bg);
+  background-color: var(--clr-accent-orange);
+  padding: 0.5em 1em;
+  border-radius: 999px;
 }
 
 .productInfo,
@@ -46,10 +72,24 @@
   gap: 0.25em;
 }
 
+.productInfo {
+  gap: 0.5em;
+}
+
+.productInfo h2 {
+  text-align: left;
+  padding: 0;
+  font-size: 30px;
+}
+
+.price {
+  font-size: 18px;
+}
+
 .productDetails {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .features,
