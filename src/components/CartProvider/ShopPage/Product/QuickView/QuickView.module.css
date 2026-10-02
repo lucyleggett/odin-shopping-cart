@@ -1,0 +1,31 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.quickView {
+  position: relative;
+  background-color: var(--clr-bg);
+  border-radius: 20px;
+  max-width: min(800px, 90vw);
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: fixed;
+  top: 170px;
+  right: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 400;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}

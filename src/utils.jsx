@@ -19,3 +19,12 @@ export function getRandomIndices(array, num) {
   }
   return indices;
 }
+
+export function extractImgId(url) {
+  if (!url) return null;
+  try {
+    return new URL(url).pathname.split("/").filter(Boolean).pop();
+  } catch {
+    return null;
+  }
+}

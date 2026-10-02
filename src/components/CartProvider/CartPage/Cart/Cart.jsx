@@ -3,7 +3,6 @@ import { useCart } from "../../../../hooks/useCart";
 import { useProducts } from "../../../../hooks/useProducts";
 import { Item } from "./Item/Item";
 import { Summary } from "./Summary/Summary";
-import { useState } from "react";
 
 export function Cart() {
   const { cart } = useCart();

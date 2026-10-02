@@ -1,9 +1,8 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { screen, within } from "@testing-library/react";
 import { renderShop } from "./_helpers";
 import { testCart } from "./_helper-data";
 import userEvent from "@testing-library/user-event";
-import { testProductData } from "./_helper-data";
 
 vi.mock("../src/hooks/useProducts", async () => {
   const { testProductData } = await import("./_helper-data");

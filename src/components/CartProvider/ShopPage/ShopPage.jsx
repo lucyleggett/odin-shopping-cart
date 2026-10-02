@@ -42,6 +42,7 @@ export function ShopPage() {
             <Product
               key={product.id}
               id={product.id}
+              product={product}
               imgSrc={image?.cleaned_url ?? image?.url}
               imgAlt={image?.alt_text ?? product.title}
               title={product.title}

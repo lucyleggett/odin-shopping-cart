@@ -1,0 +1,13 @@
+.carouselTrack {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carouselTrack img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: contain;
+  scroll-snap-align: center;
+}
