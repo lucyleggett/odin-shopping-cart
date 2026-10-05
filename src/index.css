@@ -10,6 +10,8 @@
 
   --box-shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --box-shadow-mobile:
+    rgba(0, 0, 0, 0.1) 0 5px 8px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --ff-sans: "Quicksand", Roboto, sans-serif;
   --ff-heading: "Volta W01 Bold V1", "Rockwell", "Courier New", serif;
@@ -19,6 +21,7 @@
   --fs-h2: clamp(26px, 8vw, 36px);
   --fs-h3: clamp(20px, 6vw, 30px);
   --fs-button: clamp(16px, 5vw, 20px);
+  --fs-product-title: clamp(18px, 6vw, 20px);
 
   font-family: var(--ff-sans);
   font-size: var(--fs-body);

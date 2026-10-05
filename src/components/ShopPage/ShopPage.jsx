@@ -2,8 +2,8 @@ import { Product } from "./Product/Product";
 import styles from "./ShopPage.module.css";
 import { Form } from "./Form/Form";
 import { useState } from "react";
-import { useProducts } from "../../../hooks/useProducts";
-import { useCart } from "../../../hooks/useCart";
+import { useProducts } from "../../hooks/useProducts";
+import { useCart } from "../../hooks/useCart";
 
 export function ShopPage() {
   const [input, setInput] = useState("");

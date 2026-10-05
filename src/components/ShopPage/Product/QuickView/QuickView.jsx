@@ -1,6 +1,6 @@
 import styles from "./QuickView.module.css";
 import quantityStyles from "../Product.module.css";
-import { standardisePrice } from "../../../../../utils";
+import { standardisePrice } from "../../../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import { Carousel } from "./Carousel/Carousel";

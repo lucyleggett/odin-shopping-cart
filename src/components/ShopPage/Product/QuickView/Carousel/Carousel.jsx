@@ -1,5 +1,5 @@
 import styles from "./Carousel.module.css";
-import { extractImgId } from "../../../../../../utils";
+import { extractImgId } from "../../../../../utils";
 import { useState } from "react";
 
 export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
