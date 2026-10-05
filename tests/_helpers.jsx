@@ -8,13 +8,16 @@ import {
 import { CartProvider } from "../src/components/CartProvider/CartProvider";
 import { Navbar } from "../src/components/Navbar/Navbar";
 import { Outlet } from "react-router";
+import { ProductsProvider } from "../src/components/ProductsProvider/ProductsProvider";
 
 export function renderShop({ initialCart = [], route = "/shop" } = {}) {
   const router = createMemoryRouter(routes, { initialEntries: [route] });
   return render(
-    <CartProvider initialCart={initialCart}>
-      <RouterProvider router={router} />
-    </CartProvider>,
+    <ProductsProvider>
+      <CartProvider initialCart={initialCart}>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </ProductsProvider>
   );
 }
 

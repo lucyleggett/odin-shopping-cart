@@ -1,7 +1,5 @@
 import { useProducts } from "../../hooks/useProducts";
-import { useMemo } from "react";
 import styles from "./HomePage.module.css";
-import { getRandomIndices } from "../../utils";
 import { Spotlight } from "./Spotlight/Spotlight";
 import bagguImg from "../../assets/product-images/baggu-collab.webp.jpeg";
 import cookwareImg from "../../assets/product-images/cookware.jpg";
@@ -26,14 +24,7 @@ const flowers = [
 ];
 
 export function HomePage() {
-  const { data, loading, error } = useProducts();
-
-  const spotlightIndices = useMemo(() => {
-    if (!data?.response?.products) return [];
-    return getRandomIndices(data?.response?.products, 3);
-  }, [data]);
-
-  const products = data?.response?.products;
+  const { loading, error, spotlight } = useProducts();
 
   return (
     <div className={styles.page}>
@@ -52,13 +43,11 @@ export function HomePage() {
 
       <div className={styles.spotlightContainer}>
         <h2>miffy's favourites</h2>
-        {spotlightIndices.map((i, index) => {
-          const product = products?.[i];
-          if (!product) return null;
-
+        {spotlight.map((product, index) => {
           const image =
             product.images?.find((img) => img.is_main_image) ??
             product.images?.[0];
+          const { flower, alt } = flowers[index % flowers.length];
 
           return (
             <Spotlight
@@ -68,8 +57,8 @@ export function HomePage() {
               title={product.title}
               brand={product.brands?.[0]?.name}
               description={product.description}
-              flowerSrc={flowers[index].flower}
-              flowerAlt={flowers[index].alt}
+              flowerSrc={flower}
+              flowerAlt={alt}
               price={product.offers?.[0]?.price?.price}
             ></Spotlight>
           );

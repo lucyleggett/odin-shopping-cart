@@ -10,8 +10,9 @@ vi.mock("../src/hooks/useProducts", async () => {
     data: { response: { products: testProductData } },
     loading: false,
     error: null,
+    spotlight: [],
   };
-  return { useProducts: () => value };
+  return { useProducts: () => value, ProductsProvider: ({children}) => children,};
 });
 
 afterEach(() => {
