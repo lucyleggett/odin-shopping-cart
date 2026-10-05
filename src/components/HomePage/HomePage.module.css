@@ -42,10 +42,17 @@
   justify-content: center;
   width: clamp(360px, 100%, 1000px);
   padding: 2em;
+  gap: clamp(10px, 1vw, 1em);
 }
 
-h2 {
-  font-size: 36px;
-  text-align: center;
-  padding: 0.5em;
+@media screen and (max-width: 480px) {
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 250px auto;
+  }
+
+  .spotlightContainer {
+    padding: 1.25em;
+  }
 }

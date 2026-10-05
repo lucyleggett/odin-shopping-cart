@@ -6,23 +6,39 @@
 }
 
 .header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: clamp(10px, 1vw, 30px);
   width: 100%;
-  min-height: 30%;
   background-color: var(--clr-accent-yellow);
-  padding: 1em;
+  padding: clamp(10px, 5vw, 2em);
 }
 
-.header h1 {
-text-align: center;
+.miffy {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.miffy h1 {
+  max-width: fit-content;
+  text-align: center;
 }
 
 .heroImg {
   height: clamp(100px, 20vh, 300px);
   width: auto;
-  min-width: 100px;
-  max-height: 80%;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+  }
+
+  .heroImg {
+    max-height: 100px;
+  }
 }

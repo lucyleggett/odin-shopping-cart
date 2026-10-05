@@ -8,12 +8,14 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <img
-          className={styles.heroImg}
-          src={miffyWalking}
-          alt="Miffy walking"
-        />
-        <h1 className="volta">miffy at the shop</h1>
+        <div className={styles.miffy}>
+          <img
+            className={styles.heroImg}
+            src={miffyWalking}
+            alt="Miffy walking"
+          />
+          <h1 className="volta">miffy at the shop</h1>
+        </div>
         <Navbar />
       </div>
       <Outlet />

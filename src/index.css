@@ -14,9 +14,11 @@
   --ff-sans: "Quicksand", Roboto, sans-serif;
   --ff-heading: "Volta W01 Bold V1", "Rockwell", "Courier New", serif;
 
-  --fs-body: 16px;
-  --fs-heading: clamp(30px, 6vw, 60px);
-  --fs-button: 20px;
+  --fs-body: clamp(16px, 4vw, 18px);
+  --fs-heading: clamp(30px, 10vw, 60px);
+  --fs-h2: clamp(26px, 8vw, 36px);
+  --fs-h3: clamp(20px, 6vw, 30px);
+  --fs-button: clamp(16px, 5vw, 20px);
 
   font-family: var(--ff-sans);
   font-size: var(--fs-body);
@@ -97,6 +99,17 @@ h6 {
 
 h1 {
   font-size: var(--fs-heading);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  text-align: center;
+  padding: 0.5em;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  padding: clamp(0.5em, 1vw, 1em) 0;
 }
 
 button,

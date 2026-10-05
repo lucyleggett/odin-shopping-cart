@@ -28,14 +28,6 @@ nav {
   padding: 0.2em;
 }
 
-button > img {
-  width: 1.25em;
-  max-width: 1.25em;
-  height: 1.25em;
-  max-height: 1.25em;
-  border-radius: 0;
-}
-
 .shopBtn {
   transform: translateX(8px);
   transition: transform 0.3s ease;
@@ -77,4 +69,42 @@ button > img {
 
 .disabled {
   visibility: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    grid-area: 2 / 1 / 3 / -1;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .buttonsContainer {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+
+  .homeBtn > img,
+  .cartBtn > img {
+    width: 1.5em;
+    max-width: 1.5em;
+    height: 1.5em;
+    max-height: 1.5em;
+    border-radius: 0;
+  }
+
+  .shopBtn > img,
+  .cartBtn > img {
+    width: 2em;
+    max-width: 2em;
+    height: 2em;
+    max-height: 2em;
+    border-radius: 0;
+  }
+
+  .shopBtn,
+  .homeBtn,
+  .cartBtn {
+    width: fit-content;
+  }
 }
