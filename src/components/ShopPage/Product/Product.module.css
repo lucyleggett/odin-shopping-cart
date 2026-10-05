@@ -68,7 +68,7 @@
   grid-template-columns: 1fr;
   place-items: center;
   align-self: flex-end;
-  height: 42px;
+  max-height: 42px;
   width: 77px;
 }
 
@@ -83,7 +83,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   place-items: center;
-  height: 42px;
+  max-height: 42px;
   padding: 0.25em 0.75em;
   justify-self: self-end;
 }
@@ -97,7 +97,6 @@
   justify-content: right;
   align-items: center;
   align-self: center;
-  height: 42px;
   gap: 0.3em;
 }
 

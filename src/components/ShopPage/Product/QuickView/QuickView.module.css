@@ -11,7 +11,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 3fr 4fr;
-  gap: 1em;
+  gap: clamp(0.5em, 3vw, 1em);
   background-color: var(--clr-bg);
   border-radius: 20px;
   max-width: min(800px, 90vw);
@@ -32,26 +32,26 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding: 1em;
+  gap: 1em;
+  padding: clamp(0.5em, 3vw, 1em);
 }
 
 .addItem {
+  display: flex;
   align-self: flex-start;
   align-items: center;
-  height: fit-content;
-  min-height: 62px;
   width: fit-content;
-
 }
 
 .quantity {
   align-self: flex-start;
+  min-height: 36px;
 }
 
 .basketBtn {
@@ -79,17 +79,12 @@
 .productInfo h2 {
   text-align: left;
   padding: 0;
-  font-size: 30px;
-}
-
-.price {
-  font-size: 18px;
 }
 
 .productDetails {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: clamp(0.75em, 4vw, 1em);
 }
 
 .features,
@@ -97,7 +92,7 @@
 .materials {
   display: flex;
   flex-direction: column;
-  gap: 0.25em;
+  gap: clamp(0.25em, 2vw, 0.5em);
 }
 
 ul {
@@ -119,4 +114,20 @@ li {
 
 .materials li {
   background-image: url("/src/assets/ball.webp");
+}
+
+@media screen and (max-width: 480px) {
+  .quickView {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 0;
+  }
+
+  .productDetails h3 {
+    padding: 0;
+  }
+
+  .addItem {
+    min-height: 0;
+  }
 }
