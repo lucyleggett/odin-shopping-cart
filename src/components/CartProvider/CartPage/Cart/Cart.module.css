@@ -20,5 +20,16 @@
 }
 
 .empty {
-    font-weight: 500;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 480px) {
+  .cartContainer {
+    flex-direction: column;
+  }
+
+  .itemsContainer {
+    width: 100%;
+    box-shadow: var(--box-shadow-mobile);
+  }
 }

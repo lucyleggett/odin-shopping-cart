@@ -41,7 +41,7 @@
   align-items: center;
   justify-content: center;
   width: clamp(360px, 100%, 1000px);
-  padding: 2em;
+  padding: clamp(10px, 4vw, 1.5em);
   gap: clamp(10px, 1vw, 1em);
 }
 

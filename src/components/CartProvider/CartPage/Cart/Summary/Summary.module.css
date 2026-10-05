@@ -60,3 +60,13 @@ div.buttons {
   color: var(--clr-accent-green);
   border: 2px solid var(--clr-accent-green);
 }
+
+@media screen and (max-width: 480px) {
+  .panel {
+    width: 100%;
+  }
+
+  .panel > div {
+    box-shadow: var(--box-shadow-mobile);
+  }
+}

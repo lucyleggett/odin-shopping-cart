@@ -23,6 +23,7 @@
 }
 
 .productSpotlight p {
+    margin-top: 0.5em;
   line-height: 1.5;
 }
 
@@ -31,7 +32,7 @@
   align-items: center;
   height: 40px;
   width: fit-content;
-  margin: 1em 0;
+  margin: clamp(0.5em, 2vw, 1em) 0;
   font-weight: 700;
   padding: 0;
 }
@@ -45,6 +46,7 @@
 @media screen and (max-width: 480px) {
   .productSpotlight {
     flex-direction: column;
+    gap: 0.5em;
     height: auto;
   }
 
@@ -53,6 +55,7 @@
     max-width: 100%;
     max-height: 400px;
     object-fit: cover;
+    margin: 0;
   }
 
   .productSpotlight:nth-of-type(even) {
