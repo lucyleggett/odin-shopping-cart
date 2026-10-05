@@ -17,9 +17,9 @@
   --ff-heading: "Volta W01 Bold V1", "Rockwell", "Courier New", serif;
 
   --fs-body: clamp(16px, 4vw, 18px);
-  --fs-heading: clamp(30px, 10vw, 60px);
-  --fs-h2: clamp(26px, 8vw, 36px);
-  --fs-h3: clamp(20px, 6vw, 30px);
+  --fs-heading: clamp(30px, 12vw, 60px);
+  --fs-h2: clamp(30px, 4vw, 42px);
+  --fs-h3: clamp(26px, 3vw, 30px);
   --fs-button: clamp(16px, 5vw, 20px);
   --fs-product-title: clamp(18px, 6vw, 20px);
 

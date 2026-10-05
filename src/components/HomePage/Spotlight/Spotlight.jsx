@@ -1,5 +1,7 @@
 import { standardisePrice } from "../../../utils";
 import styles from "./Spotlight.module.css";
+import btnStyles from "../../ShopPage/QuickView/QuickView.module.css"
+import { Link } from "react-router";
 
 export function Spotlight({
   imgSrc,
@@ -10,6 +12,7 @@ export function Spotlight({
   flowerSrc,
   flowerAlt,
   price,
+  id,
 }) {
   return (
     <div className={styles.productSpotlight} data-testid="product-spotlight">
@@ -18,9 +21,17 @@ export function Spotlight({
         <h3 className={styles.title}>
           {brand} {title}
         </h3>
-        <p>{description}</p>
-        <div className={styles.price}>
-          <img src={flowerSrc} alt={flowerAlt} />${standardisePrice(price)}
+        <p className={styles.multiLineLimit}>{description}</p>
+        <div className={styles.cta}>
+          <div className={styles.price}>
+            <img src={flowerSrc} alt={flowerAlt} />${standardisePrice(price)}
+          </div>
+          <Link
+            to={`/shop?product=${encodeURIComponent(id)}`}
+            className={btnStyles.basketBtn}
+          >
+            View in shop
+          </Link>{" "}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import styles from "./Carousel.module.css";
-import { extractImgId } from "../../../../../utils";
+import { extractImgId } from "../../../../utils";
 import { useState } from "react";
 
 export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
@@ -36,7 +36,7 @@ export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
       <button className={styles.carouselBtn} id="nextBtn" onClick={nextSlide}>
         &#10095;
       </button>
-
+      
       <div className={styles.dotsContainer}>
         {images.map((img, index) => (
           <span

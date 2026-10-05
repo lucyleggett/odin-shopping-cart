@@ -60,6 +60,7 @@ export function HomePage() {
               flowerSrc={flower}
               flowerAlt={alt}
               price={product.offers?.[0]?.price?.price}
+              id={product.id}
             ></Spotlight>
           );
         })}

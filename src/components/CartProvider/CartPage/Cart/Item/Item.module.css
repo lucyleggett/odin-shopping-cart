@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 1.5fr auto;
   width: 100%;
   max-height: 200px;
-  gap: 1.5em;
+  gap: clamp(1em, 4vw, 1.5em);
 }
 
 .cartItem:not(:last-child) {
@@ -23,7 +23,7 @@
 .productInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: clamp(0.25em, 1vw, 0.5em);
   padding: 1em 0;
 }
 
