@@ -1,4 +1,4 @@
-import Channel3 from "@channel3/sdk";
+import { Channel3 } from "@channel3/sdk";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {

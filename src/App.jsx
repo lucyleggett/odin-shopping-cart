@@ -4,7 +4,7 @@ import styles from "./App.module.css";
 import { Navbar } from "./components/Navbar/Navbar.jsx";
 import miffyWalking from "./assets/miffy_walking.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   return (
