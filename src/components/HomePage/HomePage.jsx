@@ -54,7 +54,6 @@ export function HomePage() {
                 imgSrc={image?.cleaned_url ?? image?.url}
                 imgAlt={image?.alt_text ?? product.title}
                 title={product.title}
-                brand={product.brands?.[0]?.name}
                 description={product.description}
                 flowerSrc={flower}
                 flowerAlt={alt}

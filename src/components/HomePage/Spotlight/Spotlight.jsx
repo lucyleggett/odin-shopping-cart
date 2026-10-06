@@ -1,13 +1,12 @@
 import { standardisePrice } from "../../../utils";
 import styles from "./Spotlight.module.css";
-import btnStyles from "../../ShopPage/QuickView/QuickView.module.css"
+import btnStyles from "../../ShopPage/QuickView/QuickView.module.css";
 import { Link } from "react-router";
 
 export function Spotlight({
   imgSrc,
   imgAlt,
   title,
-  brand,
   description,
   flowerSrc,
   flowerAlt,
@@ -18,9 +17,7 @@ export function Spotlight({
     <div className={styles.productSpotlight} data-testid="product-spotlight">
       <img src={imgSrc} alt={imgAlt} />
       <div className={styles.productInfo}>
-        <h3 className={styles.title}>
-          {brand} {title}
-        </h3>
+        <h3 className={styles.title}>{title}</h3>
         <p className={styles.multiLineLimit}>{description}</p>
         <div className={styles.cta}>
           <div className={styles.price}>
