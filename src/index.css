@@ -51,7 +51,10 @@ body::-webkit-scrollbar {
 
 #root {
   display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
   justify-content: center;
+  margin: 0;
 }
 
 *,

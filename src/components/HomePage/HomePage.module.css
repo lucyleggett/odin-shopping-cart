@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 500px auto;
+  flex-grow: 1;
 }
 
 .imgHeader {

@@ -6,4 +6,5 @@
   width: clamp(360px, 100%, 1000px);
   gap: 0.5em;
   padding: clamp(10px, 4vw, 1.5em);
+  flex-grow: 1;
 }
