@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 1em;
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   padding: clamp(1em, 8vw, 2em);
   background-color: var(--clr-accent-blue);
 }

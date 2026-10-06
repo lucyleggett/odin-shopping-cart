@@ -39,7 +39,7 @@ export function HomePage() {
       </div>
 
       {loading && <div className={styles.message}>Loading...</div>}
-      {error && <div className={styles.message}>Error loading products</div>}
+      {error && <div className={styles.message}>Error loading products.</div>}
 
       <div className={styles.spotlightContainer}>
         <h2>miffy's favourites</h2>

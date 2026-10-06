@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  justify-content: center;
+  width: clamp(360px, 100%, 1000px);
+  padding: clamp(10px, 4vw, 1.5em);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.error > * {
+  text-transform: none;
+}
+
+.error h1 {
+    font-size: var(--fs-h2);
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--clr-accent-blue);
+}

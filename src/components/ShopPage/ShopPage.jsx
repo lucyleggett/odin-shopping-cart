@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router";
 import { Product } from "./Product/Product";
 import { QuickView } from "./QuickView/QuickView";
 import styles from "./ShopPage.module.css";
+import errorMsgStyles from "../HomePage/HomePage.module.css";
 import { Form } from "./Form/Form";
 import { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
@@ -57,8 +58,8 @@ export function ShopPage() {
         input={input}
       ></Form>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      {loading && <p className={errorMsgStyles.message}>Loading...</p>}
+      {error && <p className={errorMsgStyles.message}>Error: {error}</p>}
       <div
         className={styles.productsContainer}
         data-testid="products-container"

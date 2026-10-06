@@ -49,6 +49,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 *,
 *::before,
 *::after {

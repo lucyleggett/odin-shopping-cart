@@ -34,6 +34,12 @@
   object-position: 50% 75%;
 }
 
+.message {
+  width: 100%;
+  text-align: center;
+  padding: clamp(10px, 4vw, 1.5em);
+}
+
 .spotlightContainer {
   display: flex;
   flex-direction: column;
