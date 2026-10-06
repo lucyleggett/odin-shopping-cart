@@ -149,4 +149,8 @@
     translate: 0;
     width: 100%;
   }
+
+  .cartCounter {
+    translate: 170%;
+  }
 }
