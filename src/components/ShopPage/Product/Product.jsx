@@ -1,5 +1,5 @@
-import { standardisePrice } from "../../../utils";
-import styles from "../Product/Product.module.css"
+import { standardisePrice, MAX_QUANTITY } from "../../../utils";
+import styles from "../Product/Product.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router";
@@ -33,6 +33,7 @@ export function Product({
         <div className={styles.addItem}>
           {quantity === 0 ? (
             <button
+              type="button"
               className={styles.basketBtn}
               onClick={() => incrementItem(id)}
               aria-label="Add to cart"
@@ -42,11 +43,24 @@ export function Product({
             </button>
           ) : (
             <div className={styles.quantity}>
-              <button onClick={() => decrementItem(id)}>-</button>
+              <button
+                type="button"
+                onClick={() => decrementItem(id)}
+                aria-label="Decrease quantity"
+              >
+                -
+              </button>
               <p>{quantity}</p>
-              <button onClick={() => incrementItem(id)}>+</button>
+              <button
+                type="button"
+                onClick={() => incrementItem(id)}
+                disabled={quantity >= MAX_QUANTITY}
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
             </div>
-          )}
+          )}{" "}
         </div>
       </div>
     </div>

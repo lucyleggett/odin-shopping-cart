@@ -1,3 +1,5 @@
+export const MAX_QUANTITY = 300;
+
 export function standardisePrice(price) {
   const numericPrice = parseFloat(String(price).replace(/[^0-9.-]/g, ""));
 

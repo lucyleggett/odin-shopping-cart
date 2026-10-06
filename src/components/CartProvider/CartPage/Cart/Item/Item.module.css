@@ -51,6 +51,11 @@ h4 {
   border-radius: 999px;
 }
 
+.quantity button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .quantity button,
 .quantity p {
   font-weight: 400;

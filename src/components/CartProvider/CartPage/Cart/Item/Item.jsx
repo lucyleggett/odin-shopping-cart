@@ -1,6 +1,6 @@
 import styles from "./Item.module.css";
 import { useCart } from "../../../../../hooks/useCart";
-import { standardisePrice } from "../../../../../utils";
+import { standardisePrice, MAX_QUANTITY } from "../../../../../utils";
 import { Link } from "react-router";
 
 export function Item({ id, imgSrc, imgAlt, brand, title, quantity, price }) {
@@ -27,10 +27,23 @@ export function Item({ id, imgSrc, imgAlt, brand, title, quantity, price }) {
         <p className={styles.price}>${standardisePrice(totalPrice)}</p>
       </div>
       <div className={styles.quantity}>
-        <button onClick={() => decrementItem(id)}>-</button>
+        <button
+          type="button"
+          onClick={() => decrementItem(id)}
+          aria-label="Decrease quantity"
+        >
+          -
+        </button>
         <p>{quantity}</p>
-        <button onClick={() => incrementItem(id)}>+</button>
-      </div>
+        <button
+          type="button"
+          onClick={() => incrementItem(id)}
+          disabled={quantity >= MAX_QUANTITY}
+          aria-label="Increase quantity"
+        >
+          +
+        </button>
+      </div>{" "}
       <button
         className={styles.removeBtn}
         data-testid="remove-btn"

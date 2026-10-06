@@ -1,17 +1,26 @@
 import { useState } from "react";
 import { CartContext } from "../../context/cartContext";
+import { MAX_QUANTITY } from "../../utils";
 
 export function CartProvider({ children, initialCart = [] }) {
   const [cart, setCart] = useState(initialCart);
 
   const incrementItem = (id) => {
-    setCart((prev) =>
-      prev.some((item) => item.id === id)
-        ? prev.map((item) =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
-          )
-        : [...prev, { id, quantity: 1 }],
-    );
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === id);
+
+      if (!existing) {
+        return [...prev, { id, quantity: 1 }];
+      }
+
+      if (existing.quantity >= MAX_QUANTITY) {
+        return prev;
+      }
+
+      return prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      );
+    });
   };
 
   const decrementItem = (id) => {
@@ -30,7 +39,7 @@ export function CartProvider({ children, initialCart = [] }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, incrementItem, decrementItem, removeItem }}
+      value={{ cart, MAX_QUANTITY, incrementItem, decrementItem, removeItem }}
     >
       {children}
     </CartContext.Provider>
