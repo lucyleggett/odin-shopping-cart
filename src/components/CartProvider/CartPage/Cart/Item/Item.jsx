@@ -1,6 +1,7 @@
 import styles from "./Item.module.css";
 import { useCart } from "../../../../../hooks/useCart";
 import { standardisePrice } from "../../../../../utils";
+import { Link } from "react-router";
 
 export function Item({ id, imgSrc, imgAlt, brand, title, quantity, price }) {
   const { incrementItem, decrementItem, removeItem } = useCart();
@@ -9,10 +10,20 @@ export function Item({ id, imgSrc, imgAlt, brand, title, quantity, price }) {
 
   return (
     <div className={styles.cartItem} data-testid="cart-item">
-      <img src={imgSrc} alt={imgAlt} />
+      <Link
+        to={`/shop?product=${encodeURIComponent(id)}`}
+        className={styles.link}
+      >
+        <img src={imgSrc} alt={imgAlt} />
+      </Link>
       <div className={styles.productInfo}>
         <p className={styles.brand}>{brand}</p>
-        <h4>{title}</h4>
+        <Link
+          to={`/shop?product=${encodeURIComponent(id)}`}
+          className={styles.link}
+        >
+          <h4>{title}</h4>
+        </Link>
         <p className={styles.price}>${standardisePrice(totalPrice)}</p>
       </div>
       <div className={styles.quantity}>

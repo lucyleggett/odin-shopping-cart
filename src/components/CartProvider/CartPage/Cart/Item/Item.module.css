@@ -3,7 +3,7 @@
   grid-template-rows: 1fr auto;
   grid-template-columns: 1fr 1.5fr auto;
   width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   gap: clamp(1em, 4vw, 1.5em);
 }
 
@@ -12,8 +12,11 @@
   padding-bottom: 1em;
 }
 
-.cartItem img {
+.link {
   grid-area: 1 / 1 / -1 / 2;
+}
+
+.cartItem img {
   height: 100%;
   width: 100%;
   border-radius: 15px;
@@ -29,6 +32,10 @@
 
 .brand {
   font-size: 12px;
+}
+
+h4 {
+  text-transform: none;
 }
 
 .quantity {

@@ -36,6 +36,33 @@
   padding: 0;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  background-color: var(--clr-accent-blue);
+  padding: clamp(10px, 5vw, 2em);
+  color: var(--clr-bg);
+  font-weight: 400;
+  margin-top: 1em;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer a,
+.footer a > * {
+  height: 30px;
+  width: auto;
+  text-transform: none;
+}
+
 @media screen and (max-width: 480px) {
   .header {
     display: flex;
