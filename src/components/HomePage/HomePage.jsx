@@ -37,35 +37,34 @@ export function HomePage() {
         <img src={bagguImg} alt={"Miffy x Baggu reusable shopping bags"} />
         <img src={cookwareImg} alt={"Miffy shaped chocolates in a box"} />
       </div>
-
       {loading && <div className={styles.message}>Loading...</div>}
       {error && <div className={styles.message}>Error loading products.</div>}
+      {!error && !loading && (
+        <div className={styles.spotlightContainer}>
+          <h2>miffy's favourites</h2>
+          {spotlight.map((product, index) => {
+            const image =
+              product.images?.find((img) => img.is_main_image) ??
+              product.images?.[0];
+            const { flower, alt } = flowers[index % flowers.length];
 
-      <div className={styles.spotlightContainer}>
-        <h2>miffy's favourites</h2>
-        {spotlight.map((product, index) => {
-          const image =
-            product.images?.find((img) => img.is_main_image) ??
-            product.images?.[0];
-          const { flower, alt } = flowers[index % flowers.length];
-
-          return (
-            <Spotlight
-              key={product.id}
-              imgSrc={image?.cleaned_url ?? image?.url}
-              imgAlt={image?.alt_text ?? product.title}
-              title={product.title}
-              brand={product.brands?.[0]?.name}
-              description={product.description}
-              flowerSrc={flower}
-              flowerAlt={alt}
-              price={product.offers?.[0]?.price?.price}
-              id={product.id}
-            ></Spotlight>
-          );
-        })}
-      </div>
-      <div />
+            return (
+              <Spotlight
+                key={product.id}
+                imgSrc={image?.cleaned_url ?? image?.url}
+                imgAlt={image?.alt_text ?? product.title}
+                title={product.title}
+                brand={product.brands?.[0]?.name}
+                description={product.description}
+                flowerSrc={flower}
+                flowerAlt={alt}
+                price={product.offers?.[0]?.price?.price}
+                id={product.id}
+              />
+            );
+          })}
+        </div>
+      )}{" "}
     </div>
   );
 }
