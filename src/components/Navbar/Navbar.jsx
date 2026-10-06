@@ -16,14 +16,14 @@ export function Navbar() {
   const cartCount = getCartCount(cart.cart);
 
   return (
-    <nav>
+    <nav className={styles.navbar}>
       <div className={styles.buttonsContainer}>
         <NavLink to="/" className={styles.homeBtn}>
           <img src={house} alt="Miffy's house" />
           <span>Home</span>
         </NavLink>
         <NavLink to="/shop" className={styles.shopBtn}>
-          <img src={dog} alt="Yellow duck" />
+          <img src={dog} alt="Brown dog" />
           <span>Shop</span>
         </NavLink>
         <NavLink to="/cart" className={styles.cartBtn}>

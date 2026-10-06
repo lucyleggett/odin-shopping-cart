@@ -10,7 +10,7 @@
 .quickView {
   position: relative;
   display: grid;
-  grid-template-columns: 3fr 4fr;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
   gap: clamp(0.5em, 3vw, 1em);
   background-color: var(--clr-bg);
   border-radius: 20px;
@@ -116,10 +116,10 @@ li {
   background-image: url("/src/assets/ball.webp");
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 700px) {
   .quickView {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     padding: 0;
   }
 

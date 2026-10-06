@@ -38,6 +38,7 @@ div.total {
 }
 
 div.buttons {
+  min-width: 280px;
   gap: 1em;
 }
 
@@ -61,12 +62,32 @@ div.buttons {
   border: 2px solid var(--clr-accent-green);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 700px) {
+  .panel {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .summary {
+    width: 100%;
+  }
+}
+
+@media (700px <= width <= 1000px) {
   .panel {
     width: 100%;
+    flex-direction: row;
   }
 
   .panel > div {
     box-shadow: var(--box-shadow-mobile);
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .summary {
+    width: 100%;
   }
 }

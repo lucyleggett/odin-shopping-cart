@@ -1,10 +1,10 @@
 import styles from "./Carousel.module.css";
-import { extractImgId } from "../../../../utils";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
-export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
+export function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const leadId = extractImgId(leadImgSrc);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -31,12 +31,12 @@ export function Carousel({ leadImgSrc, leadImgAlt, productName, images }) {
         />
       </div>
       <button className={styles.carouselBtn} id="prevBtn" onClick={prevSlide}>
-        &#10094;
+        <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       <button className={styles.carouselBtn} id="nextBtn" onClick={nextSlide}>
-        &#10095;
+        <FontAwesomeIcon icon={faAngleRight} />
       </button>
-      
+
       <div className={styles.dotsContainer}>
         {images.map((img, index) => (
           <span

@@ -1,22 +1,22 @@
 .carouselContainer {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2 / 3;
+  min-width: 0;
   width: 100%;
+  align-self: start;
 }
 
 .carouselTrack {
   display: flex;
   align-items: start;
-  width: 100%;
-  height: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .carouselTrack img {
   flex: 0 0 100%;
   width: 100%;
-  min-height: 470px;
+  height: auto;
+  aspect-ratio: 2 / 3;
   max-height: 470px;
   object-fit: contain;
   scroll-snap-align: center;
@@ -33,7 +33,7 @@
   width: 40px;
   color: var(--clr-text);
   border: none;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   font-size: 24px;
   border-radius: 50%;
@@ -45,10 +45,10 @@
 }
 
 .carouselBtn:nth-of-type(1) {
-  left: 5px;
+  left: 0;
 }
 .carouselBtn:nth-of-type(2) {
-  right: 5px;
+  right: 0;
 }
 
 .dotsContainer {
@@ -74,13 +74,14 @@
   background-color: color-mix(in srgb, var(--clr-text), transparent 30%);
 }
 
-@media screen and (max-width: 480px) {
-  .carouselContainer {
-    height: fit-content;
-    aspect-ratio: inherit;
-  }
-
+@media screen and (max-width: 700px) {
   .carouselTrack {
     padding-bottom: 2em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carouselTrack img {
+    object-fit: cover;
   }
 }

@@ -17,7 +17,7 @@
   --ff-heading: "Volta W01 Bold V1", "Rockwell", "Courier New", serif;
 
   --fs-body: clamp(16px, 4vw, 18px);
-  --fs-heading: clamp(30px, 12vw, 60px);
+  --fs-heading: clamp(32px, 6vw, 60px);
   --fs-h2: clamp(30px, 4vw, 42px);
   --fs-h3: clamp(26px, 3vw, 30px);
   --fs-button: clamp(16px, 5vw, 20px);
@@ -28,7 +28,7 @@
   color: var(--clr-text);
   background: var(--clr-bg);
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -55,6 +55,9 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *:not(dialog) {
@@ -96,7 +99,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.volta {
   text-wrap: balance;
 }
 
@@ -125,6 +129,7 @@ a {
   font-size: var(--fs-button);
   font-weight: 700;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 
 .volta {

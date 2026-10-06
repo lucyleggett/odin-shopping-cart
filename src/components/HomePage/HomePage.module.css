@@ -42,7 +42,7 @@
   justify-content: center;
   width: clamp(360px, 100%, 1000px);
   padding: clamp(10px, 4vw, 1.5em);
-  gap: clamp(10px, 1vw, 1em);
+  gap: clamp(10px, 2vw, 1em);
 }
 
 @media screen and (max-width: 480px) {
